@@ -25,19 +25,23 @@ export default class Poster extends Component {
   }
 
   componentDidMount() {
-    this.setMasonry('.grid');
+   // this.setMasonry('.grid');
   }
 
   render() {    
+    console.log(this.props.data);
     let { vote, adult, title, poster_path, backdrop_path, genre_ids, id, original_language, original_title, overview, popularity,
     release_date, video, vote_average, vote_count } = this.props.data;
     
-    let poster = 'https://image.tmdb.org/t/p/w500' + poster_path;
+    poster_path = 'https://image.tmdb.org/t/p/w500' + poster_path;
+    backdrop_path = 'https://image.tmdb.org/t/p/original' + backdrop_path;
 
     return (
       <div className="grid-item grid-sizer">
-        <h2>{title}</h2>
-        <img src={poster} />
+        <div className="grid-inner">
+          <h2>{title}</h2>
+          <img src={poster_path} />
+        </div>
       </div>
       )
   }
