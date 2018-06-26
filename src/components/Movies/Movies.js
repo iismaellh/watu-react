@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import axios from 'axios';
 
 import Poster from '../Poster/Poster';
@@ -40,11 +41,11 @@ export default class Movies extends Component {
         } else {
             posters = this.state.movies.map(movie => {
                 return <Poster key={movie.id} data={movie} />
-            });
+            }); 
         }
 
         return (
-            <div>
+            <div className="grid">
                 {posters}
             </div>
         )
